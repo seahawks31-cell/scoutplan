@@ -3,6 +3,7 @@
 # and loads a demo troop you can sign in to.
 set -euo pipefail
 cd /workspaces/scoutplan
+source .devcontainer/env.sh
 until pg_isready -q; do echo "Waiting for the database..."; sleep 2; done
 bundle install
 bin/rails db:prepare
