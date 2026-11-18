@@ -2,7 +2,6 @@
 # Starts Scoutplan on port 3000 plus the background worker that sends email.
 cd /workspaces/scoutplan
 source .devcontainer/env.sh
-export SCOUTPLAN_TRY_IT=1
 bin/jobs &
 JOBS_PID=$!
 trap 'kill $JOBS_PID 2>/dev/null' EXIT

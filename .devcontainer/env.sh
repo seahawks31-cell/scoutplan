@@ -7,3 +7,4 @@ export TWILIO_SID="${TWILIO_SID:-placeholder}"
 export TWILIO_TOKEN="${TWILIO_TOKEN:-placeholder}"
 export TWILIO_NUMBER="${TWILIO_NUMBER:-+15555550100}"
 export STRIPE_SECRET_KEY="${STRIPE_SECRET_KEY:-sk_test_placeholder}"
+export SCOUTPLAN_TRY_IT=1
