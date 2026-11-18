@@ -1,0 +1,35 @@
+# Codespaces / dev container setup for trying Scoutplan in the browser.
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    command: sleep infinity
+    volumes:
+      - ..:/workspaces/scoutplan:cached
+      - bundle:/usr/local/bundle
+    environment:
+      PGHOST: db
+      PGUSER: postgres
+      PGPASSWORD: password
+      REDIS_URL: redis://redis:6379/0
+      EMAIL_DOMAIN: example.com
+    depends_on:
+      - db
+      - redis
+      - mailcatcher
+
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_PASSWORD: password
+
+  redis:
+    image: redis:7-alpine
+
+  # Catches every email the app sends; open the "Test inbox" port to read them.
+  mailcatcher:
+    image: sj26/mailcatcher
+
+volumes:
+  bundle:

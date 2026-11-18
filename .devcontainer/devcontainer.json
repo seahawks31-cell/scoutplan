@@ -1,0 +1,13 @@
+{
+  "name": "Scoutplan (try it)",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspaces/scoutplan",
+  "forwardPorts": [3000, "mailcatcher:1080"],
+  "portsAttributes": {
+    "3000": { "label": "Scoutplan", "onAutoForward": "openBrowser" },
+    "mailcatcher:1080": { "label": "Test inbox" }
+  },
+  "postCreateCommand": "bash .devcontainer/setup.sh",
+  "hostRequirements": { "cpus": 4 }
+}
